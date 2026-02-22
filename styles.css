@@ -1,41 +1,22 @@
-html{
-        color:antiquewhite;
+html {
+    color: antiquewhite;
 }
 
-.container{color: #a9a9a9;
-    background-image: radial-gradient(rgba(2, 26, 46, 1), rgba(2, 26, 46, 0.65)); 
+.header {
+    color: #a9a9a9;
+    background-image: radial-gradient(rgba(2, 26, 46, 1), rgba(2, 26, 46, 0.65));
     border-color: rgb(42, 41, 41);
+    border: solid 2px;
+    display: block;
+    border-radius: 25px;
+    width: 95%;
+    border-radius: 25px;
+    margin: 2.5%;
 }
-
-#headshot{
-    border-radius: 50%;
-    height: 200px;
-    float: left;
-    margin: 20px;
-    border: solid grey;
-    border-width: 2px;
-}
-body{
-    
-    background-image: url(./assets/images/gears-code.jpg);
-    background-attachment: fixed;
-}
-.navbar{
-background-color:  rgba(2, 26, 46, 0.65);
-}
-.row{
-    padding-bottom: 50px;
-}
-
-.jumbotron{
-    padding-top:20px
-}
-
-.navbar-brand{
-    border-color: grey;
-}
-.container{
-    border-color: grey;
+.container {
+    color: #a9a9a9;
+    background-image: radial-gradient(rgba(2, 26, 46, 1), rgba(2, 26, 46, 0.65));
+    border-color: rgb(42, 41, 41);
     border: solid 2px;
     display: flex;
     border-radius: 25px;
@@ -43,16 +24,50 @@ background-color:  rgba(2, 26, 46, 0.65);
     border-radius: 25px;
     margin: 2.5%;
 }
-img{
+
+#headshot {
+    border-radius: 50%;
+    height: 200px;
+    float: left;
+    margin: 20px;
+    border: solid grey;
+    border-width: 2px;
+}
+
+body {
+
+    background-image: url(./assets/images/gears-code.jpg);
+    background-attachment: fixed;
+}
+
+.navbar {
+    background-color: rgba(2, 26, 46, 0.65);
+}
+
+.row {
+    padding-bottom: 50px;
+}
+
+.jumbotron {
+    padding-top: 20px
+}
+
+.navbar-brand {
+    border-color: grey;
+}
+
+img {
     border-radius: 25px;
     object-fit: cover;
-    
+
 }
-.grid{
-    display:grid;
+
+.grid {
+    display: grid;
     gap: 10px;
-    grid-template-columns:1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
+
 .row {
     display: -ms-flexbox;
     /* IE10 */
@@ -71,30 +86,34 @@ img{
     max-width: 33.33%;
     padding: 10px;
 }
-.centered{
+
+.centered {
     white-space: nowrap;
-    position:relative;
-    top:30%;
-    left:65%;
+    position: relative;
+    top: 30%;
+    left: 65%;
     transform: translate(-50%, -50%)
 }
 
-.card{ 
+.card {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     border: solid gray;
     border-width: 1px;
-    border-radius:10px;
+    border-radius: 10px;
     margin-top: 8px;
     vertical-align: middle;
     width: 100%;
     position: relative;
     text-align: center;
 }
+
 .card:hover {
-background-color: #2980b9; /* Darker shade on hover */
-transform: scale(1.05); /* Slight zoom effect */
+    background-color: #2980b9;
+    /* Darker shade on hover */
+    transform: scale(1.05);
+    /* Slight zoom effect */
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */
@@ -114,46 +133,52 @@ transform: scale(1.05); /* Slight zoom effect */
         max-width: 100%;
     }
 }
-#mongoose{ 
+
+#mongoose {
     background-position: center;
-    height:375px;
+    height: 375px;
     background-color: black;
     background-image: url(./assets/images/fullColorBLK.svg)
 }
-#js{
-    background-image:url(./assets/images/js_logo_icon.svg);
-    background-size:auto;
+
+#js {
+    background-image: url(./assets/images/js_logo_icon.svg);
+    background-size: auto;
 
 }
+
 button {
 
     clear: both;
     overflow: hidden;
     white-space: nowrap;
     margin-top: 10px;
-    background-color:rgb(173, 216, 230);
+    background-color: rgb(173, 216, 230);
     border-radius: 10px;
     padding: 5px;
-    padding-right:10px;
+    padding-right: 10px;
     padding-left: 10px;
     border: solid dimgrey;
     border-width: 2px;
 }
-#manufacturing{
-    background-position-y:75%;
+
+#manufacturing {
+    background-position-y: 75%;
     background-size: contain;
     background-repeat: no-repeat;
-    height:300px;
-    background-color:dimgrey;
+    height: 300px;
+    background-color: dimgrey;
     background-image: url(./assets/images/CAD/aussi-locker[76].png);
 
 }
-#additive{
-    height:325px;
-    background-image:url(./assets/images/CAD/20200504_200143.jpg);
+
+#additive {
+    height: 325px;
+    background-image: url(./assets/images/CAD/20200504_200143.jpg);
     background-position: top;
 }
-#website-tile{
+
+#website-tile {
     background-image: url(assets/images/website.png);
 }
 
@@ -183,10 +208,9 @@ button {
 
 .carousel-inner .item {
     background: white;
-    
-}
-.card-body
-{
-    padding-bottom: 10px;
+
 }
 
+.card-body {
+    padding-bottom: 10px;
+}
