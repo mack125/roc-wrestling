@@ -1,0 +1,21 @@
+<!DOCTYPE html>  
+<html>  
+<body>  
+<script>  
+// Check user device  
+var userAgent = navigator.userAgent.toLowerCase();  
+var isIOS = userAgent.includes('iphone') || userAgent.includes('ipad');  
+var isAndroid = userAgent.includes('android');  
+ 
+// Redirect based on device  
+if (isIOS) {  
+  window.location.href = "APPLE_MAPS_URL"; // e.g., "https://maps.apple.com/?saddr=NY&daddr=Boston..."  
+} else if (isAndroid) {  
+  window.location.href = "GOOGLE_MAPS_URL"; // e.g., "https://www.google.com/maps/dir/?api=1&origin=NY..."  
+} else {  
+  // Desktop: Default to Google Maps web (or let users choose)  
+  window.location.href = "GOOGLE_MAPS_WEB_URL"; // e.g., "https://www.google.com/maps/dir/?api=1&origin=NY..."  
+}  
+</script>  
+</body>  
+</html>  
