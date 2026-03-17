@@ -1,5 +1,19 @@
+/* Prevent hamburger menu button from being full width */
+#navDropdown.btn {
+    width: auto !important;
+    min-width: 40px;
+    max-width: 60px;
+    padding: 6px 12px;
+    display: inline-block;
+}
 html {
     color: antiquewhite;
+}
+
+/* remove all borders globally */
+* {
+    border: none !important;
+    width: 100% !important; /* make every element full width */
 }
 
 .header {
@@ -12,6 +26,18 @@ html {
     width: 95%;
     border-radius: 25px;
     margin: 2.5%;
+    position: relative; /* allow positioning of logo */
+}
+
+.header-logo {
+    position: absolute;
+    left: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 120px;
+    width: 120px !important;
+    object-fit: cover;
+    border-radius: 50%;
 }
 .container {
     color: #a9a9a9;
@@ -19,8 +45,9 @@ html {
     border-color: rgb(42, 41, 41);
     border: solid 2px;
     display: flex;
+    flex-direction: column; /* stack children vertically */
     border-radius: 25px;
-    width: 95%;
+    width: 100%; /* full width */
     border-radius: 25px;
     margin: 2.5%;
 }
@@ -36,7 +63,7 @@ html {
 
 body {
 
-    background-image: url(./assets/images/gears-code.jpg);
+    background-image: url(./assets/images/blue-dake-bomb.jpg);
     background-attachment: fixed;
 }
 
@@ -62,30 +89,8 @@ img {
 
 }
 
-.grid {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr;
-}
 
-.row {
-    display: -ms-flexbox;
-    /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap;
-    /* IE10 */
-    flex-wrap: wrap;
-    padding: 0 4px;
-}
 
-/* Create 3 equal columns that sits next to each other */
-.column {
-    -ms-flex: 33.33%;
-    /* IE10 */
-    flex: 33.33%;
-    max-width: 33.33%;
-    padding: 10px;
-}
 
 .centered {
     white-space: nowrap;
@@ -109,12 +114,6 @@ img {
     text-align: center;
 }
 
-.card:hover {
-    background-color: #2980b9;
-    /* Darker shade on hover */
-    transform: scale(1.05);
-    /* Slight zoom effect */
-}
 
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {

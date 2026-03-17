@@ -28,22 +28,20 @@
                     </svg>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="navDropdown">
-                    <li><a href="#">Resumé</a></li>
-                    <li><a href="https://www.google.com">coaches</a></li>
-                    <li><a href="./Manufacturing-engineering.html">Manufacturing</a></li>
-                    <li><a href="#">3D modeling</a></li>
-                    <li><a href="#">3D Printing (additive manufacturing)</a></li>
-                    <li><a href="./about.html">About</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#coaches">Coaches</a></li>
+                    <li><a href="#map">Map</a></li>
+                    <li><a href="#contact-footer">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="header text-center" style="border-color: darkgrey; border:solid 1px; margin-top:0">
+    <div class="header" style="border-color: darkgrey; margin-top:0">
+        <img  src="./assets/images/roc-logo.png" alt="Roc Wrestling logo" class="header-logo" >
         <h1 style="text-align: center;"> Roc Wrestling </h1>
-        <p style="text-decoration: underline overline">Folkstyle/Freestyle/Grecco</p>
-        <p><a style="padding:10px" href="./about.html">Rochester NY</a></p>
+        <p style="text-decoration: underline overline; text-align: center;">Folkstyle/Freestyle/Grecco</p>
+        <p style="text-align: center; padding:10px">Rochester NY </p>
     </div>
     <div class="container row">
         <div class="column">
@@ -52,37 +50,50 @@
 
             </div>
             <div class="card">
-                <button><a href="./html-css.html">HTML/CSS</a></button>
-                <img src="./assets/images/coding-blue-angle.jpg" class="rounded img-responsive" style="width:100%"
-                    alt="Image">
+                <!-- HTML/CSS section removed -->
             </div>
         </div>
         <div class="column">
-            <div class="card" id="manufacturing">
-                <button><a href="./coaches.html">Coaches</a></button>
-            </div>
-            <div class="card">
-                <button><a href="./Skaihawk.html">Drone Design</a></button>
-                <video controls autoplay name="drone-vid" style="width:95%; ">
-                    <source src="./assets/images/CAD/StingrAI_vid.mp4">
-                </video>
+            <div class="card" id="about">
+                <h2 style="text-align:center; margin-left:0;">ABOUT</h2>
+                <ul style="text-align:left; list-style-type: disc; margin-left: 31%;">
+                  <li>6th -12th Graders &amp; Post Grads welcome</li>
+                  <li>March to October</li>
+                  <li>Tuesday &amp; Thursday</li>
+                  <li>6:00pm to 7:30pm</li>
+                  <li>Costs: 2 Months $140, 1 month $80, Drop in $20</li>
+                  <li>Three Style Wrestling: Folkstyle, Freestyle, Greco-Roman</li>
+                  <li><a href="https://www.nyway.org/individualmembership" target="_blank" style="color: #0074d9; text-decoration:underline;">NYWAY Cards required</a></li>
+                  <li>Venmo: <a href="https://account.venmo.com/u/Cruz125" target="_blank" style="color: #0074d9; text-decoration:underline;">https://account.venmo.com/u/Cruz125</a></li>
+                </ul>
             </div>
         </div>
         <div class="column">
-            <div class="card" id="additive" alt="Additive Manufacturing">
-                <button><a href="./">Additive Manufacturing</a></button>
-
-            </div>
+                        <div id="coaches" style="position:relative; background: url('./assets/images/blue-light.jpg') center center/cover no-repeat; border-radius: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); padding: 32px 18px 32px 18px; margin-bottom: 24px; overflow: hidden; min-height: 260px;">
+                              <div style="max-width: 540px; margin: 0 auto; padding: 28px 32px; display: flex; flex-direction: row; align-items: center; gap: 32px; flex-wrap: wrap; color: #fff;">
+                                <img src="./assets/images/coach_cruz.jpg" alt="Coach Sal Cruz" style="width:240px !important; height:240px !important; border-radius:50%; object-fit:cover; box-shadow: 0 2px 8px rgba(0,0,0,0.18); border: 4px solid #fff; flex-shrink:0; display:block;">
+                                <div style="flex:1; min-width:200px;">
+                                    <h2 style="margin:0 0 8px 0; font-size:2rem; font-weight:700; letter-spacing:1px; color:#6ec6ff;">COACHES</h2>
+                                    <h3 style="margin:0 0 6px 0; font-size:1.2rem; font-weight:600;">Head Coach: Sal Cruz</h3>
+                                    <div style="font-size:1rem; margin-bottom:10px;">
+                                        Roc Wrestling Club<br>
+                                        McQuaid Jesuit Wrestling
+                                    </div>
+                                    <div style="background: rgba(255,255,255,0.10); border-radius: 10px; padding: 10px 14px;">
+                                        <h4 style="margin:0 0 6px 0; font-size:1.05rem; color:#6ec6ff;">About Me</h4>
+                                        <p style="margin:0; font-size:0.98rem;">Coach Sal Cruz is the head coach of Roc Wrestling Club and McQuaid Jesuit Wrestling. He is dedicated to developing young athletes both on and off the mat, fostering a love for wrestling, and building character through discipline and teamwork.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
             <div class="card">
-                <button><a href="./html-css.html">HTML/CSS</a></button>
-                <img src="https://placehold.it/150x80?text=IMAGE" class="rounded img-responsive" style="width:100%"
-                    alt="Image">
+                <!-- HTML/CSS section removed -->
             </div>
         </div>
     </div>
-    <footer class="text-center">
-        <a style="padding:10px" href="./about.html">About</a>
-        <a style="padding:10px" href="./contact.html">Contact</a>
+    <footer class="text-center" id="contact-footer">
+        <a style="padding:10px" href="#about">About</a>
+        <a style="padding:10px" href="#coaches">Contact</a>
     </footer>
 
 </body>
