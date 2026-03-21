@@ -27,6 +27,27 @@
             }
         </style>
 </head>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var leftVideo = document.getElementById('header-video-left');
+    var rightVideo = document.getElementById('header-video-right');
+    if (leftVideo) {
+        leftVideo.muted = false;
+        leftVideo.volume = 1.0;
+        leftVideo.play();
+    }
+    if (rightVideo) {
+        rightVideo.addEventListener('mouseenter', function() {
+            rightVideo.muted = false;
+            rightVideo.volume = 1.0;
+            rightVideo.play();
+        });
+        rightVideo.addEventListener('mouseleave', function() {
+            rightVideo.muted = true;
+        });
+    }
+});
+</script>
 
 <body>
     <nav class="navbar navbar-inverse">
@@ -65,10 +86,15 @@
     </nav>
 
     <div class="header" style="border-color: darkgrey; margin-top:0">
-        
-        <h1 style="text-align: center;"> Roc Wrestling </h1>
-        <p style="text-decoration: underline overline; text-align: center;">Folkstyle/Freestyle/Grecco</p>
-        <p style="text-align: center; padding:10px">Rochester NY </p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 24px;">
+                    <video id="header-video-left" src="./assets/images/YouCut_20260222_202133169.mp4" class="header-video" style="height: 90px; border-radius: 12px;" autoplay loop playsinline></video>
+                    <div style="flex: 0 1 auto;">
+                        <h1 style="text-align: center; margin-bottom: 0;"> Roc Wrestling </h1>
+                        <p style="text-decoration: underline overline; text-align: center; margin-bottom: 0;">Folkstyle/Freestyle/Grecco</p>
+                        <p style="text-align: center; padding:10px; margin-bottom: 0;">Rochester NY </p>
+                    </div>
+                    <video id="header-video-right" src="./assets/images/YouCut_20250319_000555927.mp4" class="header-video" style="height: 90px; border-radius: 12px;" autoplay loop muted playsinline></video>
+                </div>
     </div>
     <div class="container row">
         <!-- Map section moved to bottom -->
@@ -131,6 +157,14 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+    <!-- Highlight Video Section -->
+    <section id="highlight-video" style="margin: 40px auto; max-width: 600px; text-align: center;">
+        <h2 style="color:#b0c4de; margin-bottom: 18px;">ROC Wrestling Highlight</h2>
+        <video src="./assets/images/Roc.mp4" style="width:100%; max-width:600px; border-radius:16px; box-shadow:0 4px 24px rgba(0,0,0,0.18);" controls poster="./assets/images/roc-logo.png"></video>
+    </section>
+
         <a style="padding:10px" href="#about">About</a>
         <a style="padding:10px" href="#coaches">Contact</a>
         <a style="padding:10px; color:#1877f3; text-decoration:underline;" href="https://www.facebook.com/share/18SrhKKjgs/" target="_blank">Facebook</a>
