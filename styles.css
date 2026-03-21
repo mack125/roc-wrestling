@@ -1,3 +1,36 @@
+@media (max-width: 600px) {
+    #about {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 16px !important;
+    }
+    #about .about-logo {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 12px !important;
+    }
+    #about > div[style*="margin-left"] {
+        margin-left: 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    #about > div[style*="margin-left"] ul {
+        margin-left: 0 !important;
+        text-align: left !important;
+        display: inline-block !important;
+    }
+}
+/* Ensure About section logo can be less wide */
+.about-logo {
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: cover;
+    border-radius: 50%;
+    display: inline-block;
+}
 /* Prevent hamburger menu button from being full width */
 #navDropdown.btn {
     width: auto !important;
@@ -31,7 +64,7 @@ html {
 
 .header-logo {
     position: absolute;
-    left: 25%;
+    left: 10%;
     top: 50%;
     transform: translateY(-50%);
     height: 120px;

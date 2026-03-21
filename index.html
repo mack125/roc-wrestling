@@ -10,91 +10,100 @@
     <link rel="stylesheet" href="./styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <style>
-    </style>
+        <style>
+            .nav-link-custom {
+                color: #b0c4de !important;
+                font-weight: bold;
+                text-decoration: underline;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            .nav-link-logo {
+                height: 18px;
+                width: 18px;
+                margin-right: 6px;
+                margin-bottom: 2px;
+                vertical-align: middle;
+            }
+        </style>
 </head>
 
 <body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./index.html" style="color:rgb(42, 41, 41)">Home</a>
-            <div class="dropdown" style="display:inline-block; margin:10px;">
-                <button class="btn btn-default dropdown-toggle" type="button" id="navDropdown" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
-                        viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
-                    </svg>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="navDropdown">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#coaches">Coaches</a></li>
-                    <li><a href="#map">Map</a></li>
-                    <li><a href="#contact-footer">Contact</a></li>
-                </ul>
+            <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+                <div style="display:flex; align-items:center; gap:18px;">
+                    <div class="dropdown" style="display:inline-block; margin:10px 18px 10px 0;">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="navDropdown" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list"
+                                viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                            </svg>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="navDropdown">
+                            <li><a href="#about" class="nav-link-custom">About</a></li>
+                            <li><a href="#coaches" class="nav-link-custom">Coaches</a></li>
+                            <li><a href="#map" class="nav-link-custom">Map</a></li>
+                            <li><a href="#contact-footer" class="nav-link-custom">Contact</a></li>
+                            <li><a href="https://www.facebook.com/share/18SrhKKjgs/" target="_blank" class="nav-link-custom">Facebook</a></li>
+                            <li><a href="https://www.instagram.com/roc.wrestling?utm_source=qr&igsh=MWlkenRueTU5YXFz
+                                eA==" target="_blank" class="nav-link-custom">Instagram</a></li>
+                            <li><a href="https://account.venmo.com/u/Cruz125" target="_blank" class="nav-link-custom">Venmo</a></li>
+                        </ul>
+                    </div>
+                    <a class="navbar-brand" href="./index.html" style="color:#b0c4de; font-weight:bold;">Home</a>
+                </div>
+                <div style="display:flex; align-items:center;">
+                    <a href="https://www.facebook.com/share/18SrhKKjgs/" target="_blank" class="nav-link-custom">Facebook</a>
+                    <a href="https://www.instagram.com/roc.wrestling?utm_source=qr&igsh=MWlkenRueTU5YXFzeA==" target="_blank" class="nav-link-custom">Instagram</a>
+                    <a href="https://account.venmo.com/u/Cruz125" target="_blank" class="nav-link-custom" style="margin-left:8px;">Venmo</a>
+                </div>
             </div>
         </div>
     </nav>
 
     <div class="header" style="border-color: darkgrey; margin-top:0">
-        <img  src="./assets/images/roc-logo.png" alt="Roc Wrestling logo" class="header-logo" >
+        
         <h1 style="text-align: center;"> Roc Wrestling </h1>
         <p style="text-decoration: underline overline; text-align: center;">Folkstyle/Freestyle/Grecco</p>
         <p style="text-align: center; padding:10px">Rochester NY </p>
     </div>
     <div class="container row">
+        <!-- Map section moved to bottom -->
         <div class="column">
-            <div class="card" id="map" alt="Google maps">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11648.322319965571!2d-77.61150375606509!3d43.1238334172623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d6b53a00f39ca1%3A0x96987d0f951ea18a!2sMcQuaid%20Jesuit%20High%20School!5e0!3m2!1sen!2sus!4v1772388416432!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-                                <div style="margin-top:18px; background:#f8f9fa; border-radius:10px; padding:16px; color:#222;">
-                                      <div style="background:rgba(0, 40, 100, 0.7); border-radius:10px; padding:16px; color:#fff;">
-                                        <strong>Please remember the following instructions for getting to McQuaid Jesuit for our season training sessions:</strong><br><br>
-                                        <b>Location:</b><br>
-                                        We practice in the McQuaid Jesuit wrestling room at 1800 South Clinton Avenue, Rochester, NY.<br><br>
-                                        <b>Parking Information:</b><br>
-                                        Parking spots at McQuaid are limited, so we highly encourage carpooling. Upon arrival, please park at the back of the DiMarco Field House and enter through the glass doors labeled "4." If there are no parking spots in the field house lot, you may park in front of the school by exit 1 or on the opposite side of the building near exit 12. From there, please walk back to enter through door 4.<br><br>
-                                        <b>Inside the Building:</b><br>
-                                        Once inside, take the stairs to the basement and turn left to reach the cafeteria. The wrestling room is located behind the weight room.<br><br>
-                                        If you have any further questions or concerns, please feel free to get in touch.
-                                    </div>
+                        <div class="card" id="about" style="display: flex; align-items: center; gap: 32px;">
+                                <img src="./assets/images/roc-logo.png" alt="Roc Wrestling logo" class="about-logo" style="object-fit: cover; border-radius: 50%; margin-left: 10%; margin-right: 0;">
+                                <div style="flex:1; margin-left: -20%;">
+                                        <h2 style="text-align:center; margin-left:0;">ABOUT</h2>
+                                        <ul style="text-align:left; list-style-type: disc; margin-left: 31%;">
+                                            <li>6th -12th Graders &amp; Post Grads welcome</li>
+                                            <li>March to October</li>
+                                            <li>Tuesday &amp; Thursday</li>
+                                            <li>6:00pm to 7:30pm</li>
+                                            <li>Costs: 2 Months $140, 1 month $80, Drop in $20</li>
+                                            <li>Three Style Wrestling: Folkstyle, Freestyle, Greco-Roman</li>
+                                            <li><a href="https://www.nyway.org/individualmembership" target="_blank" style="color: #0074d9; text-decoration:underline;">NYWAY Cards required</a></li>
+                                            <li>Venmo: <a href="https://account.venmo.com/u/Cruz125" target="_blank" style="color: #0074d9; text-decoration:underline;">https://account.venmo.com/u/Cruz125</a></li>
+                                        </ul>
                                 </div>
-
-            </div>
-            <div class="card">
-                <!-- HTML/CSS section removed -->
-            </div>
-        </div>
-        <div class="column">
-            <div class="card" id="about">
-                <h2 style="text-align:center; margin-left:0;">ABOUT</h2>
-                <ul style="text-align:left; list-style-type: disc; margin-left: 31%;">
-                  <li>6th -12th Graders &amp; Post Grads welcome</li>
-                  <li>March to October</li>
-                  <li>Tuesday &amp; Thursday</li>
-                  <li>6:00pm to 7:30pm</li>
-                  <li>Costs: 2 Months $140, 1 month $80, Drop in $20</li>
-                  <li>Three Style Wrestling: Folkstyle, Freestyle, Greco-Roman</li>
-                  <li><a href="https://www.nyway.org/individualmembership" target="_blank" style="color: #0074d9; text-decoration:underline;">NYWAY Cards required</a></li>
-                  <li>Venmo: <a href="https://account.venmo.com/u/Cruz125" target="_blank" style="color: #0074d9; text-decoration:underline;">https://account.venmo.com/u/Cruz125</a></li>
-                </ul>
-            </div>
+                        </div>
         </div>
         <div class="column">
                         <div id="coaches" style="position:relative; background: url('./assets/images/blue-light.jpg') center center/cover no-repeat; border-radius: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); padding: 32px 18px 32px 18px; margin-bottom: 24px; overflow: hidden; min-height: 260px;">
-                              <div style="max-width: 540px; margin: 0 auto; padding: 0; display: flex; flex-direction: row; align-items: center; gap: 32px; flex-wrap: wrap; color: #fff; background:rgba(0, 40, 100, 0.7); border-radius: 16px;">
+                              <div style="max-width: 900px; margin: 0 auto; padding: 0; display: flex; flex-direction: row; align-items: center; gap: 32px; flex-wrap: wrap; color: #fff; background:rgba(0, 40, 100, 0.7); border-radius: 16px;">
                                 <img src="./assets/images/coach_cruz.jpg" alt="Coach Sal Cruz" style="width:360px !important; height:360px !important; border-radius:50%; object-fit:cover; box-shadow: 0 2px 16px rgba(0,0,0,0.22); flex-shrink:0; display:block; margin-left:-60px; z-index:2; position:relative;">
-                                <div style="flex:1; min-width:200px;">
-                                    <h2 style="margin:0 0 8px 0; font-size:2rem; font-weight:700; letter-spacing:1px; color:#6ec6ff;">COACHES</h2>
-                                    <h3 style="margin:0 0 6px 0; font-size:1.2rem; font-weight:600;">Head Coach: Sal Cruz</h3>
+                                <div style="flex:1; min-width:200px; padding-right:32px;">
+                                    <h2 style="margin:0 0 8px 0; font-size:2rem; font-weight:700; letter-spacing:1px; color:#6ec6ff; padding-left:16px;">COACHES</h2>
+                                    <h3 style="margin:0 0 6px 0; font-size:1.2rem; font-weight:600; padding-left:16px;">Head Coach: Sal Cruz</h3>
                                     <div style="font-size:1rem; margin-bottom:10px;">
-                                        Roc Wrestling Club<br>
-                                        McQuaid Jesuit Wrestling
+                                        <span style="padding-left:16px; display:inline-block;">Roc Wrestling Club</span><br>
+                                        <span style="padding-left:16px; display:inline-block;">McQuaid Jesuit Wrestling</span>
                                     </div>
                                     <div style="background: rgba(255,255,255,0.10); border-radius: 10px; padding: 10px 14px;">
                                         <h4 style="margin:0 0 6px 0; font-size:1.05rem; color:#6ec6ff;">About Me</h4>
-                                        <p style="margin:0; font-size:0.98rem;">Coach Sal Cruz is the head coach of Roc Wrestling Club and McQuaid Jesuit Wrestling. He is dedicated to developing young athletes both on and off the mat, fostering a love for wrestling, and building character through discipline and teamwork.</p>
+                                        <p style="margin:0; font-size:0.98rem;">Salvador Cruz was a competitor at SUNY Brockport. Cruz wrestled at 125 pounds and earned All-American honors during his collegiate career. He served as team captain, a two-time national qualifier, a two-time conference finalist, and a two-time all-state wrestler, building a reputation for discipline, toughness, and technical skill. Following his competitive career, Cruz transitioned into coaching, serving for 14 years as an assistant coach at SUNY Brockport under legendary college coach Donald Murray. In that role, he helped develop national qualifiers and All-American wrestlers, contributing to the program’s success. <br><br>A lifelong advocate for the sport, he has also been involved in youth and scholastic wrestling initiatives and camps in the Rochester area, continuing to mentor and shape the next generation of wrestlers both on and off the mat. He has currently assisted in developing multiple varsity-level competitors who attend Roc Wrestling Club, empowering them to achieve their goals of securing placements in the Class Sectional tournament, the State Qualifier tournament, and the New York State tournament.</p>
                                     </div>
                                 </div>
                             </div>
@@ -105,8 +114,26 @@
         </div>
     </div>
     <footer class="text-center" id="contact-footer">
+            <div class="container row">
+                <div class="column">
+                    <div class="card" id="map" alt="Google maps">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11648.322319965571!2d-77.61150375606509!3d43.1238334172623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d6b53a00f39ca1%3A0x96987d0f951ea18a!2sMcQuaid%20Jesuit%20High%20School!5e0!3m2!1sen!2sus!4v1772388416432!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div style="margin-top:18px; background:rgba(0, 40, 100, 0.85); border-radius:10px; padding:20px 18px; color:#fff;">
+                            <strong>Please remember the following instructions for getting to McQuaid Jesuit for our season training sessions:</strong><br><br>
+                            <b>Location:</b><br>
+                            We practice in the McQuaid Jesuit wrestling room at 1800 South Clinton Avenue, Rochester, NY.<br><br>
+                            <b>Parking Information:</b><br>
+                            Parking spots at McQuaid are limited, so we highly encourage carpooling. Upon arrival, please park at the back of the DiMarco Field House and enter through the glass doors labeled "4." If there are no parking spots in the field house lot, you may park in front of the school by exit 1 or on the opposite side of the building near exit 12. From there, please walk back to enter through door 4.<br><br>
+                            <b>Inside the Building:</b><br>
+                            Once inside, take the stairs to the basement and turn left to reach the cafeteria. The wrestling room is located behind the weight room.<br><br>
+                            If you have any further questions or concerns, please feel free to get in touch.
+                        </div>
+                    </div>
+                </div>
+            </div>
         <a style="padding:10px" href="#about">About</a>
         <a style="padding:10px" href="#coaches">Contact</a>
+        <a style="padding:10px; color:#1877f3; text-decoration:underline;" href="https://www.facebook.com/share/18SrhKKjgs/" target="_blank">Facebook</a>
     </footer>
 
 </body>
