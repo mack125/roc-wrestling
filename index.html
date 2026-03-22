@@ -11,6 +11,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <style>
+                        .nowrap-title {
+                            white-space: nowrap;
+                        }
             .nav-link-custom {
                 color: #b0c4de !important;
                 font-weight: bold;
@@ -26,26 +29,109 @@
                 vertical-align: middle;
             }
         </style>
+@media (max-width: 600px) {
+    .header-flex {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+    .header-video {
+        width: 90vw !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
 </head>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    function enableSound(video) {
+        video.muted = false;
+        video.volume = 1.0;
+        video.play();
+    }
+    function muteSound(video) {
+        video.muted = true;
+    }
+    function showFullscreenWithNav(video) {
+        // Create overlay
+        var overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.background = 'rgba(0,0,0,0.95)';
+        overlay.style.zIndex = '9999';
+        overlay.style.display = 'flex';
+        overlay.style.flexDirection = 'column';
+        overlay.style.alignItems = 'center';
+        overlay.style.justifyContent = 'center';
+        // Nav bar
+        var nav = document.createElement('div');
+        nav.style.position = 'absolute';
+        nav.style.top = '0';
+        nav.style.left = '0';
+        nav.style.width = '100%';
+        nav.style.background = 'rgba(20,30,50,0.95)';
+        nav.style.display = 'flex';
+        nav.style.justifyContent = 'flex-start';
+        nav.style.alignItems = 'center';
+        nav.style.padding = '12px 24px';
+        nav.style.gap = '18px';
+        // Home button
+        var homeBtn = document.createElement('a');
+        homeBtn.href = './index.html';
+        homeBtn.textContent = 'Home';
+        homeBtn.style.color = '#b0c4de';
+        homeBtn.style.fontWeight = 'bold';
+        homeBtn.style.fontSize = '1.2rem';
+        homeBtn.style.textDecoration = 'underline';
+        homeBtn.style.marginRight = '18px';
+        nav.appendChild(homeBtn);
+        // Close button
+        var closeBtn = document.createElement('button');
+        closeBtn.textContent = 'Close';
+        closeBtn.style.marginLeft = 'auto';
+        closeBtn.style.background = '#222';
+        closeBtn.style.color = '#b0c4de';
+        closeBtn.style.fontWeight = 'bold';
+        closeBtn.style.fontSize = '1.1rem';
+        closeBtn.style.border = 'none';
+        closeBtn.style.padding = '6px 18px';
+        closeBtn.style.borderRadius = '8px';
+        closeBtn.style.cursor = 'pointer';
+        nav.appendChild(closeBtn);
+        overlay.appendChild(nav);
+        // Fullscreen video
+        var fsVideo = video.cloneNode(true);
+        fsVideo.style.width = '90vw';
+        fsVideo.style.maxWidth = '900px';
+        fsVideo.style.height = 'auto';
+        fsVideo.style.borderRadius = '18px';
+        fsVideo.style.marginTop = '60px';
+        fsVideo.controls = true;
+        fsVideo.muted = false;
+        fsVideo.volume = 1.0;
+        fsVideo.autoplay = true;
+        fsVideo.currentTime = video.currentTime;
+        fsVideo.play();
+        overlay.appendChild(fsVideo);
+        document.body.appendChild(overlay);
+        closeBtn.onclick = function() {
+            fsVideo.pause();
+            overlay.remove();
+        };
+    }
     var leftVideo = document.getElementById('header-video-left');
     var rightVideo = document.getElementById('header-video-right');
-    if (leftVideo) {
-        leftVideo.muted = false;
-        leftVideo.volume = 1.0;
-        leftVideo.play();
-    }
-    if (rightVideo) {
-        rightVideo.addEventListener('mouseenter', function() {
-            rightVideo.muted = false;
-            rightVideo.volume = 1.0;
-            rightVideo.play();
-        });
-        rightVideo.addEventListener('mouseleave', function() {
-            rightVideo.muted = true;
-        });
-    }
+    [leftVideo, rightVideo].forEach(function(video) {
+        if (!video) return;
+        video.muted = true;
+        video.autoplay = true;
+        video.play();
+        video.addEventListener('mouseenter', function() { enableSound(video); });
+        video.addEventListener('mouseleave', function() { muteSound(video); });
+        video.addEventListener('click', function() { enableSound(video); showFullscreenWithNav(video); });
+    });
 });
 </script>
 
@@ -86,14 +172,14 @@ document.addEventListener('DOMContentLoaded', function() {
     </nav>
 
     <div class="header" style="border-color: darkgrey; margin-top:0">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 24px;">
-                    <video id="header-video-left" src="./assets/images/YouCut_20260222_202133169.mp4" class="header-video" style="height: 90px; border-radius: 12px;" autoplay loop playsinline></video>
+                <div class="header-flex" style="display: flex; align-items: center; justify-content: center; gap: 24px;">
+                      <video id="header-video-left" src="./assets/images/YouCut_20260222_202133169.mp4" class="header-video" style="height: 90px; border-radius: 12px;" autoplay loop muted playsinline></video>
                     <div style="flex: 0 1 auto;">
-                        <h1 style="text-align: center; margin-bottom: 0;"> Roc Wrestling </h1>
+                        <h1 class="nowrap-title" style="text-align: center; margin-bottom: 0;"> Roc Wrestling </h1>
                         <p style="text-decoration: underline overline; text-align: center; margin-bottom: 0;">Folkstyle/Freestyle/Grecco</p>
                         <p style="text-align: center; padding:10px; margin-bottom: 0;">Rochester NY </p>
                     </div>
-                    <video id="header-video-right" src="./assets/images/YouCut_20250319_000555927.mp4" class="header-video" style="height: 90px; border-radius: 12px;" autoplay loop muted playsinline></video>
+                      <video id="header-video-right" src="./assets/images/YouCut_20250319_000555927.mp4" class="header-video" style="height: 90px; border-radius: 12px;" autoplay loop muted playsinline></video>
                 </div>
     </div>
     <div class="container row">
