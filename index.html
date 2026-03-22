@@ -10,25 +10,6 @@
     <link rel="stylesheet" href="./styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <style>
-                        .nowrap-title {
-                            white-space: nowrap;
-                        }
-            .nav-link-custom {
-                color: #b0c4de !important;
-                font-weight: bold;
-                text-decoration: underline;
-                display: inline-block;
-                vertical-align: middle;
-            }
-            .nav-link-logo {
-                height: 18px;
-                width: 18px;
-                margin-right: 6px;
-                margin-bottom: 2px;
-                vertical-align: middle;
-            }
-        </style>
 </head>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -121,6 +102,44 @@ document.addEventListener('DOMContentLoaded', function() {
         video.addEventListener('mouseleave', function() { muteSound(video); });
         video.addEventListener('click', function() { enableSound(video); showFullscreenWithNav(video); });
     });
+    // --- Intersection Observer for scroll-based video control ---
+    const videos = [
+        document.getElementById('header-video-left'),
+        document.getElementById('header-video-right'),
+        document.querySelector('#highlight-video video')
+    ].filter(Boolean);
+
+    videos.forEach(video => {
+        video.autoplay = true;
+        video.muted = true;
+        video.playsInline = true;
+        video.load();
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const video = entry.target;
+            if (entry.isIntersecting) {
+                // Pause all other videos and mute them
+                videos.forEach(v => {
+                    if (v !== video) {
+                        v.pause();
+                        v.muted = true;
+                    }
+                });
+                // Play and unmute the current video
+                video.muted = false;
+                video.play();
+            } else {
+                // Pause and mute when out of view
+                video.pause();
+                video.muted = true;
+            }
+        });
+    }, { threshold: 0.5 }); // 50% of video must be visible
+
+    videos.forEach(video => observer.observe(video));
+    // --- End Intersection Observer ---
 });
 </script>
 
@@ -144,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <li><a href="#coaches" class="nav-link-custom">Coaches</a></li>
                             <li><a href="#map" class="nav-link-custom">Map</a></li>
                             <li><a href="#contact-footer" class="nav-link-custom">Contact</a></li>
+                            <li><a href="waiver.html" class="nav-link-custom" target="_blank">Waiver Form</a></li>
                             <li><a href="https://www.facebook.com/share/18SrhKKjgs/" target="_blank" class="nav-link-custom">Facebook</a></li>
                             <li><a href="https://www.instagram.com/roc.wrestling?utm_source=qr&igsh=MWlkenRueTU5YXFz
                                 eA==" target="_blank" class="nav-link-custom">Instagram</a></li>
@@ -155,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <a href="https://www.facebook.com/share/18SrhKKjgs/" target="_blank" class="nav-link-custom" style="margin-right:8px;">Facebook</a>
                     <a href="https://www.instagram.com/roc.wrestling?utm_source=qr&igsh=MWlkenRueTU5YXFzeA==" target="_blank" class="nav-link-custom">Instagram</a>
                     <a href="https://account.venmo.com/u/Cruz125" target="_blank" class="nav-link-custom" style="margin-left:8px;">Venmo</a>
+                    <a href="waiver.html" class="nav-link-custom" target="_blank" style="margin-left:8px;">Waiver Form</a>
                 </div>
             </div>
         </div>
@@ -182,27 +203,30 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- Map section moved to bottom -->
         <div class="column">
                         <div class="card" id="about" style="display: flex; align-items: center; gap: 32px;">
-                                    <!-- About Section -->
-                                <img src="./assets/images/roc-logo.png" alt="Roc Wrestling logo" class="about-logo" style="object-fit: cover; border-radius: 50%; margin-left: 10%; margin-right: 0;">
-                                <div style="flex:1; margin-left: -20%;">
-                                        <h2 style="text-align:center; margin-left:0;">ABOUT</h2>
-                                        <ul style="text-align:left; list-style-type: disc; margin-left: 31%;">
-                                            <li>6th -12th Graders &amp; Post Grads welcome</li>
-                                            <li>March to October</li>
-                                            <li>Tuesday &amp; Thursday</li>
-                                            <li>6:00pm to 7:30pm</li>
-                                            <li>Costs: 2 Months $140, 1 month $80, Drop in $20</li>
-                                            <li>Three Style Wrestling: Folkstyle, Freestyle, Greco-Roman</li>
-                                            <li><a href="https://www.nyway.org/individualmembership" target="_blank" style="color: #0074d9; text-decoration:underline;">NYWAY Cards required</a></li>
-                                            <li>Venmo: <a href="https://account.venmo.com/u/Cruz125" target="_blank" style="color: #0074d9; text-decoration:underline;">https://account.venmo.com/u/Cruz125</a></li>
-                                        </ul>
-                                </div>
+                            <!-- About Section -->
+                            <img src="./assets/images/roc-logo.png" alt="Roc Wrestling logo" class="about-logo" style="object-fit: cover; border-radius: 50%; margin-left: 10%; margin-right: 0;">
+                            <div style="flex:1; margin-left: -20%;">
+                                <h2 style="text-align:center; margin-left:0;">ABOUT</h2>
+                                <ul style="text-align:left; list-style-type: disc; margin-left: 31%;">
+                                    <li>6th -12th Graders &amp; Post Grads welcome</li>
+                                    <li>March to October</li>
+                                    <li>Tuesday &amp; Thursday</li>
+                                    <li>6:00pm to 7:30pm</li>
+                                    <li>Costs: 2 Months $140, 1 month $80, Drop in $20</li>
+                                    <li>Three Style Wrestling: Folkstyle, Freestyle, Greco-Roman</li>
+                                    <li><a href="https://www.nyway.org/individualmembership" target="_blank" style="color: #0074d9; text-decoration:underline;">NYWAY Cards required</a></li>
+                                    <li>PayPal link coming soon</li>
+                                            <li><a href="waiver.html" target="_blank" style="color: #0074d9; text-decoration:underline; font-weight:bold;">Sign Waiver Form</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                       
                         </div>
         </div>
         <div class="column">
-                        <div id="coaches" style="position:relative; background: url('./assets/images/blue-light.jpg') center center/cover no-repeat; border-radius: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); padding: 32px 18px 32px 18px; margin-bottom: 24px; overflow: hidden; min-height: 260px;">
+                        <div id="coaches" style="position:relative; border-radius: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); padding: 32px 18px 32px 18px; margin-bottom: 24px; overflow: hidden; min-height: 260px;">
                                 <!-- Coaches Section -->
-                              <div style="max-width: 900px; margin: 0 auto; padding: 0; display: flex; flex-direction: row; align-items: center; gap: 32px; flex-wrap: wrap; color: #fff; background:rgba(0, 40, 100, 0.7); border-radius: 16px;">
+                            <div style="max-width: 900px; margin: 0 auto; padding: 0; display: flex; flex-direction: row; align-items: center; gap: 32px; flex-wrap: wrap; color: #fff; background:rgba(0, 40, 100, 0.7); border-radius: 16px;">
                                 <img src="./assets/images/coach_cruz.jpg" alt="Coach Sal Cruz" style="width:360px !important; height:360px !important; border-radius:50%; object-fit:cover; box-shadow: 0 2px 16px rgba(0,0,0,0.22); flex-shrink:0; display:block; margin-left:-60px; z-index:2; position:relative;">
                                 <div style="flex:1; min-width:200px; padding-right:32px;">
                                     <h2 style="margin:0 0 8px 0; font-size:2rem; font-weight:700; letter-spacing:1px; color:#6ec6ff; padding-left:16px;">COACHES</h2>
@@ -211,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                         <span style="padding-left:16px; display:inline-block;">Roc Wrestling Club</span><br>
                                         <span style="padding-left:16px; display:inline-block;">McQuaid Jesuit Wrestling</span>
                                     </div>
-                                    <div style="background: rgba(255,255,255,0.10); border-radius: 10px; padding: 10px 14px;">
+                                    <div style="background: rgba(255,255,255,0.30); border-radius: 10px; padding: 10px 14px;">
                                         <h4 style="margin:0 0 6px 0; font-size:1.05rem; color:#6ec6ff;">About Me</h4>
                                         <p style="margin:0; font-size:0.98rem;">Salvador Cruz was a competitor at SUNY Brockport. Cruz wrestled at 125 pounds and earned All-American honors during his collegiate career. He served as team captain, a two-time national qualifier, a two-time conference finalist, and a two-time all-state wrestler, building a reputation for discipline, toughness, and technical skill. Following his competitive career, Cruz transitioned into coaching, serving for 14 years as an assistant coach at SUNY Brockport under legendary college coach Donald Murray. In that role, he helped develop national qualifiers and All-American wrestlers, contributing to the program’s success. <br><br>A lifelong advocate for the sport, he has also been involved in youth and scholastic wrestling initiatives and camps in the Rochester area, continuing to mentor and shape the next generation of wrestlers both on and off the mat. He has currently assisted in developing multiple varsity-level competitors who attend Roc Wrestling Club, empowering them to achieve their goals of securing placements in the Class Sectional tournament, the State Qualifier tournament, and the New York State tournament.</p>
                                     </div>
@@ -219,7 +243,17 @@ document.addEventListener('DOMContentLoaded', function() {
                             </div>
                         </div>
             <div class="card">
-                <!-- HTML/CSS section removed -->
+                <!-- Contact Us Section  -->
+                <div class="card contact-us-bg" id="contact-us" style="padding: 24px;">
+                    <h2 style="color:#6ec6ff; text-align:center; margin-bottom: 24px;">Contact Us</h2>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                        <a href="tel:5854847662" class="contact-btn" style="display: inline-block; font-size: 1.3rem; font-weight: bold; padding: 18px 36px; border-radius: 12px; text-decoration: none; margin-bottom: 10px;">
+                            Text/Call: 585-484-7662
+                        </a>
+                        <a href="mailto:rocwrestlingclubllc@gmail.com" class="contact-btn" style="display: inline-block; font-size: 1.3rem; font-weight: bold; padding: 18px 36px; border-radius: 12px; text-decoration: none;">
+                            Email: rocwrestlingclubllc@gmail.com
+                        </a>
+                    </div>
             </div>
         </div>
     </div>
