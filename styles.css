@@ -1,5 +1,5 @@
 .contact-btn {
-    background: rgba(0,116,217,0.85) !important;
+    background: rgba(0,116,217,0.10) !important;
     color: #fff !important;
     border: none !important;
     box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important;
@@ -31,6 +31,7 @@
     text-decoration: underline;
     display: inline-block;
     vertical-align: middle;
+    white-space: nowrap;
 }
 .nav-link-logo {
     height: 18px;

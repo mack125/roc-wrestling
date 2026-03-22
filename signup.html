@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up - Roc Wrestling LLC</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-image: url(./assets/images/blue-dake-bomb.jpg);
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #a9a9a9;
+        }
+        .signup-container {
+            max-width: 900px;
+            margin: 32px auto;
+            background-image: radial-gradient(rgba(2, 26, 46, 1), rgba(2, 26, 46, 0.65));
+            border-color: rgb(42, 41, 41);
+            border: solid 2px;
+            border-radius: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            padding: 24px 24px 32px 24px;
+            color: #a9a9a9;
+        }
+        .pricing-section {
+            margin-bottom: 32px;
+            padding: 28px 32px 24px 32px;
+            border-bottom: 1px solid #6ec6ff;
+            background: rgba(0,40,100,0.7);
+            border-radius: 10px;
+        }
+        .pricing-section h2 {
+            margin-top: 0;
+            color: #6ec6ff;
+        }
+        .waiver-section {
+            margin-top: 32px;
+            background: rgba(0,40,100,0.7);
+            border-radius: 10px;
+            padding: 18px;
+        }
+        .waiver-section h2 {
+            color: #6ec6ff;
+        }
+        iframe {
+            width: 100%;
+            height: 1100px;
+            border: none;
+            border-radius: 8px;
+            background: #fff;
+        }
+        .waiver-section button {
+            margin-bottom:18px;
+            padding:10px 28px;
+            font-size:1.1rem;
+            background:#0074d9;
+            color:#fff;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            transition: background 0.2s;
+        }
+        .waiver-section button:hover {
+            background: #005fa3;
+            color: #e0e0e0;
+        }
+        .instructions-box {
+            background: rgba(0,116,217,0.3);
+            border-radius:8px;
+            padding:16px 18px 12px 18px;
+            margin-bottom:28px;
+            font-size:1.08rem;
+            color: #fff;
+        }
+        @media print {
+            .signup-container, body {
+                background: #fff !important;
+                box-shadow: none !important;
+                border: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            iframe {
+                height: 98vh !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div style="display:flex; flex-direction:column; align-items:center; margin-bottom:12px;">
+            <img src="./assets/images/roc-logo.png" alt="Roc Wrestling logo" class="about-logo" style="width:150px; height:150px; object-fit:cover; border-radius:50%; margin-bottom:8px;">
+        </div>
+        <h1 style="color:#6ec6ff; text-align:center;">Sign Up for Roc Wrestling LLC</h1>
+        <div class="instructions-box">
+            <strong>Instructions:</strong><br>
+            To sign up, please print the waiver form, fill it out, and bring it to practice. Contact Coach Cruz with any questions.
+        </div>
+        <div class="pricing-section">
+            <h2>Pricing</h2>
+            <ul>
+                <li><strong>Monthly Membership:</strong> $100/month</li>
+                <li><strong>Drop-in Session:</strong> $20/session</li>
+                <li><strong>Sibling Discount:</strong> $75/month for each additional sibling</li>
+                <li><strong>Private Lessons:</strong> Contact Coach Cruz for rates</li>
+            </ul>
+            <p>All memberships include access to all scheduled practices and open mats. Payment is due at the start of each month. Please contact us for financial assistance options if needed.</p>
+        </div>
+        <div class="waiver-section">
+            <h2>Membership Waiver and Release of Liability</h2>
+            <button id="waiver-btn" type="button">Waiver</button>
+            <!-- Modal overlay for waiver PDF -->
+            <div id="waiver-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center;">
+                <div style="position:relative; width:90vw; max-width:900px; margin:auto; background:#111; border-radius:16px; box-shadow:0 4px 24px rgba(0,0,0,0.18); padding:24px 0; display:flex; flex-direction:column; align-items:center;">
+                    <button id="close-waiver-modal" style="position:absolute; top:12px; right:24px; background:#0074d9; color:#fff; border:none; border-radius:6px; font-size:1.2rem; padding:6px 18px; cursor:pointer;">Close</button>
+                    <button id="print-waiver-btn" style="position:absolute; top:12px; left:24px; background:#6ec6ff; color:#111; border:none; border-radius:6px; font-size:1.1rem; padding:6px 18px; cursor:pointer;">Print Waiver</button>
+                    <a id="download-waiver-btn" href="assets/images/RocWCLLCwaiver.pdf" download style="position:absolute; top:12px; left:150px; background:#6ec6ff; color:#111; border:none; border-radius:6px; font-size:1.1rem; padding:6px 18px; cursor:pointer; text-decoration:none;">Download PDF</a>
+                    <button id="share-waiver-btn" style="position:absolute; top:12px; left:290px; background:#6ec6ff; color:#111; border:none; border-radius:6px; font-size:1.1rem; padding:6px 18px; cursor:pointer;">Share PDF</button>
+                    <iframe id="waiver-iframe" src="assets/images/RocWCLLCwaiver.pdf" style="width:100%; height:80vh; border:none; border-radius:8px; background:#fff;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+// Waiver modal logic
+document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('waiver-btn');
+    var modal = document.getElementById('waiver-modal');
+    var closeBtn = document.getElementById('close-waiver-modal');
+    var printBtn = document.getElementById('print-waiver-btn');
+    var shareBtn = document.getElementById('share-waiver-btn');
+    if (btn && modal && closeBtn && printBtn && shareBtn) {
+                shareBtn.onclick = function() {
+                    var pdfUrl = window.location.origin + '/assets/images/RocWCLLCwaiver.pdf';
+                    if (navigator.share) {
+                        navigator.share({
+                            title: 'ROC Wrestling Waiver',
+                            text: 'Download or view the ROC Wrestling waiver PDF:',
+                            url: pdfUrl
+                        }).catch(function(err) {
+                            // User cancelled or error
+                        });
+                    } else {
+                        // Fallback: copy link to clipboard
+                        if (navigator.clipboard) {
+                            navigator.clipboard.writeText(pdfUrl).then(function() {
+                                shareBtn.textContent = 'Link Copied!';
+                                setTimeout(function() { shareBtn.textContent = 'Share PDF'; }, 2000);
+                            });
+                        } else {
+                            alert('Share this link: ' + pdfUrl);
+                        }
+                    }
+                };
+        btn.onclick = function() {
+            modal.style.display = 'flex';
+        };
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        };
+        printBtn.onclick = function() {
+            // Open the PDF in a new tab and trigger print
+            var pdfUrl = 'assets/images/RocWCLLCwaiver.pdf';
+            var win = window.open(pdfUrl, '_blank');
+            if (win) {
+                win.focus();
+                // Try to trigger print after load
+                win.onload = function() {
+                    win.print();
+                };
+            }
+        };
+        // Optional: close modal when clicking outside the modal content
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+});
+</script>
+</html>

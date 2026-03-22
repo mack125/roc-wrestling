@@ -144,7 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <body>
-        <!-- Navigation Bar -->
+
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
@@ -163,133 +164,93 @@ document.addEventListener('DOMContentLoaded', function() {
                             <li><a href="#coaches" class="nav-link-custom">Coaches</a></li>
                             <li><a href="#map" class="nav-link-custom">Map</a></li>
                             <li><a href="#contact-footer" class="nav-link-custom">Contact</a></li>
-                            <li><a href="waiver.html" class="nav-link-custom" target="_blank">Waiver Form</a></li>
+                            <li><a href="signup.html" class="nav-link-custom" target="_blank">Sign Up</a></li>
                             <li><a href="https://www.facebook.com/share/18SrhKKjgs/" target="_blank" class="nav-link-custom">Facebook</a></li>
                             <li><a href="https://www.instagram.com/roc.wrestling?utm_source=qr&igsh=MWlkenRueTU5YXFz
                                 eA==" target="_blank" class="nav-link-custom">Instagram</a></li>
-                            <li><a href="https://account.venmo.com/u/Cruz125" target="_blank" class="nav-link-custom">Venmo</a></li>
                         </ul>
                     </div>
                 </div>
                 <div style="display:flex; align-items:center;">
+                    <a href="home.html" class="nav-link-custom" style="margin-right:8px;">Home</a>
                     <a href="https://www.facebook.com/share/18SrhKKjgs/" target="_blank" class="nav-link-custom" style="margin-right:8px;">Facebook</a>
                     <a href="https://www.instagram.com/roc.wrestling?utm_source=qr&igsh=MWlkenRueTU5YXFzeA==" target="_blank" class="nav-link-custom">Instagram</a>
-                    <a href="https://account.venmo.com/u/Cruz125" target="_blank" class="nav-link-custom" style="margin-left:8px;">Venmo</a>
-                    <a href="waiver.html" class="nav-link-custom" target="_blank" style="margin-left:8px;">Waiver Form</a>
+                    <a href="signup.html" class="nav-link-custom" target="_blank" style="margin-left:8px;">Sign Up</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <div class="header" style="border-color: darkgrey; margin-top:0">
-                    <!-- Header Section: Top video, site title, and subheader -->
-                <div class="header-flex" style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
-                    <video id="header-video-left" src="./assets/images/YouCut_20260222_202133169.mp4" class="header-video" style="width: 100%; max-width: 100vw; height: auto; border-radius: 12px;" autoplay loop muted playsinline></video>
-                        <!-- Top full-width video -->
-                    <div style="display: flex; align-items: center; justify-content: center; gap: 24px; width: 100%;">
-                                    <!-- Site title and subheader -->
-                        <div style="flex: 0 1 auto;">
-                            <h1 class="nowrap-title" style="text-align: center; margin-bottom: 0;"> Roc Wrestling </h1>
-                            <p style="text-decoration: underline overline; text-align: center; margin-bottom: 0;">Folkstyle/Freestyle/Grecco</p>
-                            <p style="text-align: center; padding:10px; margin-bottom: 0;">Rochester NY </p>
-                        </div>
-                    </div>
-                    <video id="header-video-right" src="./assets/images/YouCut_20250319_000555927.mp4" class="header-video" style="width: 100%; max-width: 100vw; height: auto; border-radius: 12px;" autoplay loop muted playsinline></video>
-                    <!-- Bottom full-width video -->
-                </div>
-    </div>
-    <div class="container row">
-            <!-- Main Content Container -->
-        <!-- Map section moved to bottom -->
-        <div class="column">
-                        <div class="card" id="about" style="display: flex; align-items: center; gap: 32px;">
-                            <!-- About Section -->
-                            <img src="./assets/images/roc-logo.png" alt="Roc Wrestling logo" class="about-logo" style="object-fit: cover; border-radius: 50%; margin-left: 10%; margin-right: 0;">
-                            <div style="flex:1; margin-left: -20%;">
-                                <h2 style="text-align:center; margin-left:0;">ABOUT</h2>
-                                <ul style="text-align:left; list-style-type: disc; margin-left: 31%;">
-                                    <li>6th -12th Graders &amp; Post Grads welcome</li>
-                                    <li>March to October</li>
-                                    <li>Tuesday &amp; Thursday</li>
-                                    <li>6:00pm to 7:30pm</li>
-                                    <li>Costs: 2 Months $140, 1 month $80, Drop in $20</li>
-                                    <li>Three Style Wrestling: Folkstyle, Freestyle, Greco-Roman</li>
-                                    <li><a href="https://www.nyway.org/individualmembership" target="_blank" style="color: #0074d9; text-decoration:underline;">NYWAY Cards required</a></li>
-                                    <li>PayPal link coming soon</li>
-                                            <li><a href="waiver.html" target="_blank" style="color: #0074d9; text-decoration:underline; font-weight:bold;">Sign Waiver Form</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                       
-                        </div>
-        </div>
-        <div class="column">
-                        <div id="coaches" style="position:relative; border-radius: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.18); padding: 32px 18px 32px 18px; margin-bottom: 24px; overflow: hidden; min-height: 260px;">
-                                <!-- Coaches Section -->
-                            <div style="max-width: 900px; margin: 0 auto; padding: 0; display: flex; flex-direction: row; align-items: center; gap: 32px; flex-wrap: wrap; color: #fff; background:rgba(0, 40, 100, 0.7); border-radius: 16px;">
-                                <img src="./assets/images/coach_cruz.jpg" alt="Coach Sal Cruz" style="width:360px !important; height:360px !important; border-radius:50%; object-fit:cover; box-shadow: 0 2px 16px rgba(0,0,0,0.22); flex-shrink:0; display:block; margin-left:-60px; z-index:2; position:relative;">
-                                <div style="flex:1; min-width:200px; padding-right:32px;">
-                                    <h2 style="margin:0 0 8px 0; font-size:2rem; font-weight:700; letter-spacing:1px; color:#6ec6ff; padding-left:16px;">COACHES</h2>
-                                    <h3 style="margin:0 0 6px 0; font-size:1.2rem; font-weight:600; padding-left:16px;">Head Coach: Sal Cruz</h3>
-                                    <div style="font-size:1rem; margin-bottom:10px;">
-                                        <span style="padding-left:16px; display:inline-block;">Roc Wrestling Club</span><br>
-                                        <span style="padding-left:16px; display:inline-block;">McQuaid Jesuit Wrestling</span>
-                                    </div>
-                                    <div style="background: rgba(255,255,255,0.30); border-radius: 10px; padding: 10px 14px;">
-                                        <h4 style="margin:0 0 6px 0; font-size:1.05rem; color:#6ec6ff;">About Me</h4>
-                                        <p style="margin:0; font-size:0.98rem;">Salvador Cruz was a competitor at SUNY Brockport. Cruz wrestled at 125 pounds and earned All-American honors during his collegiate career. He served as team captain, a two-time national qualifier, a two-time conference finalist, and a two-time all-state wrestler, building a reputation for discipline, toughness, and technical skill. Following his competitive career, Cruz transitioned into coaching, serving for 14 years as an assistant coach at SUNY Brockport under legendary college coach Donald Murray. In that role, he helped develop national qualifiers and All-American wrestlers, contributing to the program’s success. <br><br>A lifelong advocate for the sport, he has also been involved in youth and scholastic wrestling initiatives and camps in the Rochester area, continuing to mentor and shape the next generation of wrestlers both on and off the mat. He has currently assisted in developing multiple varsity-level competitors who attend Roc Wrestling Club, empowering them to achieve their goals of securing placements in the Class Sectional tournament, the State Qualifier tournament, and the New York State tournament.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            <div class="card">
-                <!-- Contact Us Section  -->
-                <div class="card contact-us-bg" id="contact-us" style="padding: 24px;">
-                    <h2 style="color:#6ec6ff; text-align:center; margin-bottom: 24px;">Contact Us</h2>
-                    <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
-                        <a href="tel:5854847662" class="contact-btn" style="display: inline-block; font-size: 1.3rem; font-weight: bold; padding: 18px 36px; border-radius: 12px; text-decoration: none; margin-bottom: 10px;">
-                            Text/Call: 585-484-7662
-                        </a>
-                        <a href="mailto:rocwrestlingclubllc@gmail.com" class="contact-btn" style="display: inline-block; font-size: 1.3rem; font-weight: bold; padding: 18px 36px; border-radius: 12px; text-decoration: none;">
-                            Email: rocwrestlingclubllc@gmail.com
-                        </a>
-                    </div>
-            </div>
-        </div>
-    </div>
+    <!-- Main content container for dynamic page loading -->
+    <div id="main-content" style="width:100vw; max-width:100vw; margin:0; padding:0;"></div>
+
+    <!-- Footer remains as is -->
     <footer class="text-center" id="contact-footer">
-            <div class="container row">
-                <div class="column">
-                    <div class="card" id="map" alt="Google maps">
-                            <!-- Map Section -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11648.322319965571!2d-77.61150375606509!3d43.1238334172623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d6b53a00f39ca1%3A0x96987d0f951ea18a!2sMcQuaid%20Jesuit%20High%20School!5e0!3m2!1sen!2sus!4v1772388416432!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <div style="margin-top:18px; background:rgba(0, 40, 100, 0.85); border-radius:10px; padding:20px 18px; color:#fff;">
-                            <strong>Please remember the following instructions for getting to McQuaid Jesuit for our season training sessions:</strong><br><br>
-                            <b>Location:</b><br>
-                            We practice in the McQuaid Jesuit wrestling room at 1800 South Clinton Avenue, Rochester, NY.<br><br>
-                            <b>Parking Information:</b><br>
-                            Parking spots at McQuaid are limited, so we highly encourage carpooling. Upon arrival, please park at the back of the DiMarco Field House and enter through the glass doors labeled "4." If there are no parking spots in the field house lot, you may park in front of the school by exit 1 or on the opposite side of the building near exit 12. From there, please walk back to enter through door 4.<br><br>
-                            <b>Inside the Building:</b><br>
-                            Once inside, take the stairs to the basement and turn left to reach the cafeteria. The wrestling room is located behind the weight room.<br><br>
-                            If you have any further questions or concerns, please feel free to get in touch.
-                        </div>
-                    </div>
-                </div>
+        <div class="footer-navbar" style="width:100%; margin:0 auto 18px auto; padding:0; background:rgba(2,26,46,0.65); border-radius:0; box-shadow:none; border:none;">
+            <div style="display:flex; flex-wrap:nowrap; justify-content:center; gap:12px; padding:12px 0; overflow-x:auto; white-space:nowrap; width:100%;">
+                <a class="footer-link" href="home.html">Home</a>
+                <a class="footer-link" href="#about">About</a>
+                <a class="footer-link" href="#coaches">Contact</a>
+                <a class="footer-link" href="signup.html" target="_blank">Sign Up</a>
+                <a class="footer-link" href="https://www.facebook.com/share/18SrhKKjgs/" target="_blank">Facebook</a>
+                <a class="footer-link" href="https://www.instagram.com/roc.wrestling?utm_source=qr&igsh=MWlkenRueTU5YXFzeA==" target="_blank">Instagram</a>
             </div>
         </div>
-
-    <!-- Highlight Video Section -->
-    <section id="highlight-video" style="margin: 40px auto; max-width: 600px; text-align: center;">
-            <!-- Highlight Video Section -->
-            <!-- Footer Section -->
-        <h2 style="color:#b0c4de; margin-bottom: 18px;">ROC Wrestling Highlight</h2>
-        <video src="./assets/images/Roc.mp4" style="width:100%; max-width:600px; border-radius:16px; box-shadow:0 4px 24px rgba(0,0,0,0.18);" controls poster="./assets/images/roc-logo.png"></video>
-    </section>
-
-        <a style="padding:10px" href="#about">About</a>
-        <a style="padding:10px" href="#coaches">Contact</a>
-        <a style="padding:10px; color:#1877f3; text-decoration:underline;" href="https://www.facebook.com/share/18SrhKKjgs/" target="_blank">Facebook</a>
+        <style>
+            .footer-navbar {
+                background: rgba(2,26,46,0.65) !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
+            .footer-link {
+                color: #b0c4de !important;
+                background: transparent !important;
+                border-radius: 0 !important;
+                padding: 10px 18px !important;
+                margin: 0 2px !important;
+                text-decoration: underline !important;
+                font-weight: bold !important;
+                font-size: 1.08rem !important;
+                transition: background 0.2s, color 0.2s !important;
+                display: inline-block !important;
+            }
+            .footer-link:hover {
+                background: #6ec6ff !important;
+                color: #111 !important;
+                text-decoration: none !important;
+            }
+        </style>
     </footer>
+
+<script>
+// Simple SPA loader
+function loadPage(page) {
+    fetch(page)
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('main-content').innerHTML = html;
+            window.scrollTo(0, 0);
+        });
+}
+
+// Set up navigation to load pages dynamically
+document.addEventListener('DOMContentLoaded', function() {
+    // Load home.html by default
+    loadPage('home.html');
+
+    // Intercept navbar and menu links
+    document.body.addEventListener('click', function(e) {
+        if (e.target.matches('a.nav-link-custom')) {
+            const href = e.target.getAttribute('href');
+            if (href && (href.endsWith('.html') || href === 'home.html')) {
+                e.preventDefault();
+                loadPage(href);
+            }
+        }
+    });
+});
+</script>
 
 </body>
 
