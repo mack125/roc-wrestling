@@ -1,3 +1,4 @@
+                        <!-- Removed Gym Membership Waiver and Release of Liability heading as requested -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,26 +15,26 @@
         }
         .waiver-container {
             max-width: 800px;
-            margin: 0 auto 40px auto;
+            margin: 0 auto 24px auto;
             background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-            padding: 16px 32px 32px 32px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 8px 18px 18px 18px;
             position: relative;
             overflow: hidden;
         }
         .waiver-logo {
             display: block;
-            margin: 0 auto 16px auto;
-            max-width: 180px;
+            margin: 0 auto 8px auto;
+            max-width: 120px;
         }
         .waiver-watermark {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 120%;
-            max-width: 900px;
-            opacity: 0.15;
+            width: 80%;
+            max-width: 500px;
+            opacity: 0.10;
             transform: translate(-50%, -50%);
             z-index: 0;
             pointer-events: none;
@@ -41,20 +42,21 @@
         .waiver-content {
             position: relative;
             z-index: 1;
+            font-size: 0.97rem;
         }
         h1, h2 {
             text-align: center;
             color: #111;
         }
         .waiver-section {
-            margin-bottom: 18px;
+            margin-bottom: 10px;
         }
         .waiver-label {
             font-weight: bold;
             color: #111;
         }
         .waiver-signature {
-            margin-top: 32px;
+            margin-top: 18px;
         }
         @media print {
             body {
@@ -65,21 +67,40 @@
                 border: none !important;
                 margin: 0 !important;
                 padding: 0 0 0 0 !important;
+                max-width: 100vw !important;
+            }
+            .waiver-logo {
+                max-width: 90px !important;
+                margin-bottom: 4px !important;
             }
             .waiver-watermark {
-                opacity: 0.10 !important;
+                opacity: 0.08 !important;
+                max-width: 350px !important;
+            }
+            .waiver-content {
+                font-size: 0.90rem !important;
+            }
+            .waiver-section {
+                margin-bottom: 6px !important;
+            }
+            .waiver-signature {
+                margin-top: 10px !important;
             }
         }
     </style>
 </head>
 <body>
     <div class="waiver-container">
-        <img src="assets/images/roc-logo.png" alt="Roc Wrestling Logo" class="waiver-logo">
         <img src="assets/images/roc-logo.png" alt="Roc Wrestling Watermark" class="waiver-watermark">
         <div class="waiver-content">
-            <h1>Roc Wrestling LLC</h1>
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 0; position: relative; z-index: 2;">
+                <img src="assets/images/roc-logo.png" alt="Roc Wrestling Logo Left" class="waiver-logo" style="max-width: 180px; margin: 0; position: relative; top: 0; z-index: 2;">
+                <h1 style="position: absolute; left: 50%; transform: translateX(-50%); margin: 32px 0 0 0; font-size: 2.1rem; text-align: center; z-index: 2; width: max-content;">Roc Wrestling LLC</h1>
+            </div>
+            <div style="height: 0; margin-bottom: -60px;"></div>
             <h2>Gym Membership Waiver and Release of Liability</h2>
             <div class="waiver-section" style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start;">
+                            <div style="height: 18px;"></div>
                 <div style="flex:1; min-width: 260px;">
                     <span class="waiver-label">Member Name:</span> ___________________________<br>
                     <span class="waiver-label">Date of Birth:</span> _______________<br>
