@@ -1,4 +1,29 @@
 @media (max-width: 600px) {
+    #coaches > div {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 16px !important;
+    }
+    #coaches img {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-bottom: 12px !important;
+        width: 100% !important;
+        height: auto !important;
+        max-width: 400px !important;
+        display: block !important;
+    }
+    #coaches > div > div {
+        padding-right: 0 !important;
+        min-width: 0 !important;
+        width: 100% !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+}
+@media (max-width: 600px) {
     #about {
         flex-direction: column !important;
         align-items: center !important;
