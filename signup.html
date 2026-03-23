@@ -109,80 +109,60 @@
             </ul>
             <p>All memberships include access to all scheduled practices and open mats. Payment is due at the start of each month. Please contact us for financial assistance options if needed.</p>
         </div>
-        <div class="waiver-section">
-            <h2>Membership Waiver and Release of Liability</h2>
-            <button id="waiver-btn" type="button">Waiver</button>
-            <!-- Modal overlay for waiver PDF -->
-            <div id="waiver-modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); z-index:9999; align-items:center; justify-content:center;">
-                <div style="position:relative; width:90vw; max-width:900px; margin:auto; background:#111; border-radius:16px; box-shadow:0 4px 24px rgba(0,0,0,0.18); padding:24px 0; display:flex; flex-direction:column; align-items:center;">
-                    <button id="close-waiver-modal" style="position:absolute; top:12px; right:24px; background:#0074d9; color:#fff; border:none; border-radius:6px; font-size:1.2rem; padding:6px 18px; cursor:pointer;">Close</button>
-                    <button id="print-waiver-btn" style="position:absolute; top:12px; left:24px; background:#6ec6ff; color:#111; border:none; border-radius:6px; font-size:1.1rem; padding:6px 18px; cursor:pointer;">Print Waiver</button>
-                    <a id="download-waiver-btn" href="assets/images/RocWCLLCwaiver.pdf" download style="position:absolute; top:12px; left:150px; background:#6ec6ff; color:#111; border:none; border-radius:6px; font-size:1.1rem; padding:6px 18px; cursor:pointer; text-decoration:none;">Download PDF</a>
-                    <button id="share-waiver-btn" style="position:absolute; top:12px; left:290px; background:#6ec6ff; color:#111; border:none; border-radius:6px; font-size:1.1rem; padding:6px 18px; cursor:pointer;">Share PDF</button>
-                    <iframe id="waiver-iframe" src="assets/images/RocWCLLCwaiver.pdf" style="width:100%; height:80vh; border:none; border-radius:8px; background:#fff;"></iframe>
-                </div>
+        <div class="waiver-section" style="max-width:900px; margin:32px auto; background:rgba(0,40,100,0.7); border-radius:16px; box-shadow:0 2px 8px rgba(0,0,0,0.12); padding:32px; display:flex; flex-direction:column; align-items:center;">
+            <h2 style="color:#6ec6ff; text-align:center;">Membership Waiver and Release of Liability</h2>
+            <button id="waiver-btn" type="button" style="margin-bottom:18px; padding:10px 28px; font-size:1.1rem; background:#0074d9; color:#fff; border:none; border-radius:6px; cursor:pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.12); transition: background 0.2s;">Waiver</button>
+            <div style="display:flex; flex-direction:row; flex-wrap:nowrap; gap:16px; justify-content:center; align-items:center; width:100%; margin-bottom:18px;">
+                <a id="download-waiver-btn" href="assets/images/RocWCLLCwaiver.pdf" download style="background:#6ec6ff; color:#111; border:none; border-radius:6px; font-size:1.1rem; padding:8px 22px; cursor:pointer; text-decoration:none; font-weight:bold; white-space:nowrap;">Download PDF</a>
+                <button id="print-waiver-btn" style="background:#6ec6ff; color:#111; border:none; border-radius:6px; font-size:1.1rem; padding:8px 22px; cursor:pointer; font-weight:bold; white-space:nowrap;">Print Waiver</button>
+                <button id="share-waiver-btn" style="background:#6ec6ff; color:#111; border:none; border-radius:6px; font-size:1.1rem; padding:8px 22px; cursor:pointer; font-weight:bold; white-space:nowrap;">Share PDF</button>
             </div>
+            <iframe id="waiver-iframe" src="assets/images/RocWCLLCwaiver.pdf" style="width:100%; max-width:800px; height:70vh; border:none; border-radius:8px; background:#fff; margin-bottom:0;"></iframe>
         </div>
     </div>
 </body>
 <script>
-// Waiver modal logic
-document.addEventListener('DOMContentLoaded', function() {
-    var btn = document.getElementById('waiver-btn');
-    var modal = document.getElementById('waiver-modal');
-    var closeBtn = document.getElementById('close-waiver-modal');
-    var printBtn = document.getElementById('print-waiver-btn');
-    var shareBtn = document.getElementById('share-waiver-btn');
-    if (btn && modal && closeBtn && printBtn && shareBtn) {
-                shareBtn.onclick = function() {
-                    var pdfUrl = window.location.origin + '/assets/images/RocWCLLCwaiver.pdf';
-                    if (navigator.share) {
-                        navigator.share({
-                            title: 'ROC Wrestling Waiver',
-                            text: 'Download or view the ROC Wrestling waiver PDF:',
-                            url: pdfUrl
-                        }).catch(function(err) {
-                            // User cancelled or error
-                        });
-                    } else {
-                        // Fallback: copy link to clipboard
-                        if (navigator.clipboard) {
-                            navigator.clipboard.writeText(pdfUrl).then(function() {
-                                shareBtn.textContent = 'Link Copied!';
-                                setTimeout(function() { shareBtn.textContent = 'Share PDF'; }, 2000);
-                            });
-                        } else {
-                            alert('Share this link: ' + pdfUrl);
-                        }
-                    }
-                };
-        btn.onclick = function() {
-            modal.style.display = 'flex';
-            modal.style.alignItems = 'center';
-            modal.style.justifyContent = 'center';
-        };
-        closeBtn.onclick = function() {
-            modal.style.display = 'none';
-        };
-        printBtn.onclick = function() {
-            // Open the PDF in a new tab and trigger print
-            var pdfUrl = 'assets/images/RocWCLLCwaiver.pdf';
-            var win = window.open(pdfUrl, '_blank');
-            if (win) {
-                win.focus();
-                // Try to trigger print after load
-                win.onload = function() {
-                    win.print();
-                };
+// Waiver card button logic
+var btn = document.getElementById('waiver-btn');
+var printBtn = document.getElementById('print-waiver-btn');
+var shareBtn = document.getElementById('share-waiver-btn');
+var downloadBtn = document.getElementById('download-waiver-btn');
+var waiverIframe = document.getElementById('waiver-iframe');
+if (btn && printBtn && shareBtn && downloadBtn && waiverIframe) {
+    btn.onclick = function() {
+        waiverIframe.scrollIntoView({behavior: 'smooth'});
+    };
+    printBtn.onclick = function() {
+        var pdfUrl = 'assets/images/RocWCLLCwaiver.pdf';
+        var win = window.open(pdfUrl, '_blank');
+        if (win) {
+            win.focus();
+            win.onload = function() {
+                win.print();
+            };
+        }
+    };
+    shareBtn.onclick = function() {
+        var pdfUrl = window.location.origin + '/assets/images/RocWCLLCwaiver.pdf';
+        if (navigator.share) {
+            navigator.share({
+                title: 'ROC Wrestling Waiver',
+                text: 'Download or view the ROC Wrestling waiver PDF:',
+                url: pdfUrl
+            }).catch(function(err) {
+                // User cancelled or error
+            });
+        } else {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(pdfUrl).then(function() {
+                    shareBtn.textContent = 'Link Copied!';
+                    setTimeout(function() { shareBtn.textContent = 'Share PDF'; }, 2000);
+                });
+            } else {
+                alert('Share this link: ' + pdfUrl);
             }
-        };
-        // Optional: close modal when clicking outside the modal content
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-    }
-});
+        }
+    };
+}
 </script>
 </html>
